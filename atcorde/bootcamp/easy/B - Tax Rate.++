@@ -1,0 +1,25 @@
+//方針
+//与えられた値を1.08で割る
+//割った値とその両隣の値に1.08をかける(重要な発想)
+//そのうちどれかが与えられた値と同じなら
+//与えられた値の税抜き金額は存在する
+
+int main(){
+	int taxed = 0;
+	cin >> taxed;
+	
+	int retaxed_c = (taxed / 1.08)*1.08;
+	int retaxed_p = tax_c+1;
+	int retaxed_m = tax_c-1;
+	
+	if(taxed == retaxd_c){
+		cout << retaxed_c<<endl;
+	}else if(taxed == retaxed_p){
+		cout << retaxed_p<<endl;
+	}else if(taxed == retaxed_m){
+		cout << retaxed_m<<endl;
+	}else if{
+		cout << ":("<<endl;
+	}
+	
+}
