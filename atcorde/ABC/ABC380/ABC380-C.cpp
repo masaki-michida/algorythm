@@ -12,14 +12,17 @@ int main() {
     vector<vector<int>> vec(target1,vector<int>(0));
     for (int i = 0; i < howstring; i++)
     {
-       if(bin[i] == '1'){
-           vec[cnt].push_back(i);
-           if (i+1 < howstring&&bin[i+1] == '0')
-           {
-                cnt++;
-           }
+        if(cnt == target1){//修正箇所
+            break;
+        }
+        if(bin[i] == '1'){
+            vec[cnt].push_back(i);//reの原因cntで範囲外アクセス
+            if (i+1 < howstring&&bin[i+1] == '0')
+            {
+                    cnt++;
+            }
            
-       } 
+        } 
     }
     
     int target_ele = vec[target1-1].size();
@@ -46,3 +49,10 @@ int main() {
 //指定された塊の番号を0に変えてその一つ前の行の番号から要素数分1にする
 
 //re
+//原因　vector<vector<int>> vec(target1,vector<int>(0));の部分
+//target1は前に持っていきたい1の場所を示すので、そこから先の1の塊
+//を格納する時vecが範囲外になる
+//対策 cnt > target1になったらbreakするようにした
+//vec(target1)なのでvec[cnt]の時に範囲外にならなくなった
+
+//AC
